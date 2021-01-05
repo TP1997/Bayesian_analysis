@@ -1,0 +1,17 @@
+model{
+  # Likelihood:
+  for(i in 1:N)
+  {
+    #devs[i] ~ dt(mu, sigma, 4)
+    devs[i] ~ dnorm(mu, sigma)
+  }
+  devs.new ~ dt(muasdasd, tsasdasdau, 4)
+  # Prior for mu:
+  mu ~ dnorm(0, 1/1000000)
+  # Prior for sigma:
+  sigma ~ dgamma(0.0001,0.0001)
+  tau <- 1/sigma
+  
+  # Prediction
+  
+  }

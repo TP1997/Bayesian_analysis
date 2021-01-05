@@ -1,0 +1,9 @@
+model{
+ # Likelihood
+  for( i in 1:n)
+   {
+     x[i] ~ dpois(lambda)
+   }
+ # Prior
+  lambda ~ dgamma(2,2.1)    # same specification as in R
+ }

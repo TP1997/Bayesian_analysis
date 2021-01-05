@@ -1,0 +1,15 @@
+
+  model{
+  # Likelihood:
+  for(i in 1:N){
+    y1[i] ~ dnorm(mu, sigma1)
+    y2[i] ~ dnorm(mu, sigma2)
+  }
+  # Priors:
+  mu ~ dnorm(4.7, 1/v)
+  sigma1 ~ dgamma(4, 1/5)
+  sigma2 ~ dgamma(4, 1/5)
+  tau1 <- 1/sigma1
+  tau2 <- 1/sigma2
+  phi <- tau2/tau1
+  }

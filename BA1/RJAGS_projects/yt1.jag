@@ -1,0 +1,13 @@
+model{
+  theta ~ dbeta(22.28,27.23)
+  # Prior 1
+  x ~ dbin(theta, N)
+
+  # Prior 2
+  pi ~ dunif(0,1)
+  # Predictive distribution
+  x.new ~ dbin(theta, N)
+  
+  theta.new = x.new/N
+
+ }

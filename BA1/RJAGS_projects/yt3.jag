@@ -1,0 +1,19 @@
+model{
+  # Likelihood
+  for( i in 1:n)
+   {
+     mu[i] <- alpha + b.gen*gender[i]+b.age*age[i]
+     bp[i] ~ dnorm(mu[i], psi)
+   }
+   
+  # Priors
+  alpha ~ dnorm(0.0, 1.0E-4) #variance=10000
+  b.gen ~ dnorm(0.0, 1.0E-4)
+  b.age ~ dnorm(0.0, 1.0E-4)
+  psi ~dgamma(1.0E-3, 1.0E-3)
+  sigma <- 1.0/sqrt(psi)
+  
+  #Prediction
+  mu.new <- alpha + b.gen*gen.new + b.age*age.new
+  bp.new ~ dnorm(mu.new, psi)
+ }

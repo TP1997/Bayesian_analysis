@@ -1,0 +1,12 @@
+model
+{
+ # likelihood
+ for (i in 1:N){
+  x[i]~ dnorm(mu, sigma2)
+  }
+ # Prior
+  mu~dnorm(5,0.25)
+  sigma2~dgamma(0.025,0.05)
+ # Variance
+  tau <- 1/sigma2
+}

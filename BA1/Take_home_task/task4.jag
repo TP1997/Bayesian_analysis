@@ -1,0 +1,21 @@
+
+  model{
+  # Likelihood:
+  for(i in 1:N){
+    mu[i] <- b0 + b1*weight[i] + b2*sixcyl[i] + b3*eightcyl[i] + e
+    mpg[i] ~ dnorm(mu[i], prec)
+  }
+  # Priors:
+  b0 ~ dnorm(0, 0.0001) # Variance = 1000
+  b1 ~ dnorm(0, 0.0001)
+  b2 ~ dnorm(0, 0.0001)
+  b3 ~ dnorm(0, 0.0001)
+  e ~ dnorm(0, prec)
+  prec ~ dgamma(0.01, 0.01) #?
+  sigma2 <- 1/sqrt(prec)
+  
+  # Predictive distribution:
+  mu.new <- b0 + b1*weight.new + e
+  mpg.new ~ dnorm(mu.new, prec)
+    
+  }

@@ -1,0 +1,6 @@
+
+  model{
+
+  mu ~ dnorm(4.7, 1/v)
+
+  }

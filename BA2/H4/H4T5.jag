@@ -1,0 +1,14 @@
+
+  model{
+    for(i in 1:N){
+      y[i] ~ dbern(p[i])
+      logit(p[i]) = b0 + b1*x1[i] + b2*x2[i] + b3*x3[i] + b4*x4[i] + b5*x5[i]
+    }
+    # Priors
+    b0 ~ dnorm(0, 0.001) # Variance = 1000
+    b1 ~ dnorm(0, 0.001)
+    b2 ~ dnorm(0, 0.001)
+    b3 ~ dnorm(0, 0.001)
+    b4 ~ dnorm(0, 0.001)
+    b5 ~ dnorm(0, 0.001)
+  }

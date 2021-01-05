@@ -1,0 +1,18 @@
+
+  model{
+  for(i in 1:I){
+    for(j in 1:n[i]){
+      y[i,j] ~ dnorm(mu[i], tauinv)
+    }
+    mu[i] ~ dnorm(phi, mu.sd)
+  }
+  # Priors
+  tauinv ~ dgamma(102, 202)
+  gaminv ~ dgamma(6, 20)
+  tau = 1/tauinv
+  gam = 1/gaminv
+  
+  # Hyperparameters
+  phi = 60
+  mu.sd = 1
+  }

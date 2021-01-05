@@ -1,0 +1,21 @@
+model
+  {
+    # Likelihood:
+    for(i in 1:N)
+    {
+      x[i] ~ dnegbin(p[i],1)
+      # Prior for p's
+      #p[i] ~ dbeta(a, b)
+    }
+    for(i in 1:N){
+    # Prior for p's
+      p[i] ~ dbeta(a, b)
+    }
+    # Hyperpriors for a and b
+    a ~ dgamma(1, 1)
+    b ~ dgamma(1, 1)
+    #b ~ dgamma(1, 0.5)
+    
+    theta <- a/(a+b)
+  }
+  

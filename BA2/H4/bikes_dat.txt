@@ -1,0 +1,13 @@
+# bikes.txt (bikes data - make a data file from this!)
+#
+ bikes other
+     16    58
+      9    90
+     10    48
+     13    57
+     19   103
+     20    57
+     18    86
+     17   112
+     35   273
+     55    64

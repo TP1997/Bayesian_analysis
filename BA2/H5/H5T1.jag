@@ -1,0 +1,14 @@
+
+  model{
+  for(i in 1:I){
+    for(j in 1:J){ #n[i]
+      y[i,j] ~ dnorm(mu[i,j], tauinv)
+      mu[i,j] = b0 + b1*x[j] #b0 + b1*(x[j]-mean(x[]))
+    }
+  }
+  # Priors
+  b0 ~ dnorm(0, 1.0E-6)
+  b1 ~ dnorm(0, 1.0E-6)
+  tauinv ~ dgamma(0.1, 0.1)   #tauinv: precision, tau: variance
+  tau = 1/tauinv
+  }

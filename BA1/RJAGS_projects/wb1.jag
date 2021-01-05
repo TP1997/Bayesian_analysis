@@ -1,0 +1,6 @@
+model{
+  # Likelihood
+  x ~ dbin(pi, n)
+  # Prior
+  pi ~ dbeta(0.01, 0.01)    # same specification as in R
+ }

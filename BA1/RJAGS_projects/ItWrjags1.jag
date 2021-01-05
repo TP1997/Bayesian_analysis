@@ -1,0 +1,9 @@
+model{
+  # Prior for pi:
+  pi ~ dbeta(0.01, 0.01)
+  ri ~ dbinom(pi, N)
+  
+  ri.new ~ dbinom(pi, N)
+  pi.new <- ri.new/N
+  
+  }
